@@ -58,7 +58,7 @@ class UserViewModel(private val context: Context) : ViewModel() {
         })
     }
 
-    private fun updateUser(updateUserBody: UpdateUserBody, id: Int) {
+     fun updateUser(updateUserBody: UpdateUserBody, id: Int) {
         NetUtil.userApiService.updateUser(updateUserBody = updateUserBody, id = id).enqueue(object : Callback<UpdateUserResponse> {
             override fun onResponse(call: Call<UpdateUserResponse>, response: Response<UpdateUserResponse>) {
                 if (response.code() == 200) {
@@ -75,7 +75,7 @@ class UserViewModel(private val context: Context) : ViewModel() {
         })
     }
 
-    private fun deleteUser(id: Int) {
+     fun deleteUser(id: Int) {
         NetUtil.userApiService.deleteUser(id = id).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 if (response.code() == 204) {
@@ -92,7 +92,7 @@ class UserViewModel(private val context: Context) : ViewModel() {
         })
     }
 
-    private fun getUser(id: Int) {
+     fun getUser(id: Int) {
         NetUtil.userApiService.getUser(id = id).enqueue(object : Callback<UserResponse> {
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 when {
