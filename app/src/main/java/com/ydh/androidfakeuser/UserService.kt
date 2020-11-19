@@ -9,7 +9,7 @@ interface UserService {
     fun getAllUser(@Query("page") page: Int): Call<UserResponse>
 
     @GET("users/{id}")
-    fun getUser(@Path("id") id: Int): Call<UserModel>
+    fun getUser(@Path("id") id: Int): Call<UserResponse>
 
     @POST("users")
     fun createUser(@Body createUserBody: CreateUserBody ): Call<CreateUserResponse>

@@ -27,9 +27,10 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_add_user_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="hint" />
+                    android:hint="Name" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -42,9 +43,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/input_name">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_add_user_job"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="hint" />
+                    android:hint="Job" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button

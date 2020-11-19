@@ -1,12 +1,13 @@
 package com.ydh.androidfakeuser.ui
 
-import android.app.Dialog
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
+import android.widget.Button
+import android.widget.EditText
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -66,7 +67,16 @@ class UserListFragment : Fragment() {
     private val userDataObserver = Observer<PagedList<UserModel>> { t -> myAdapter?.submitList(t) }
 
     private fun dialog(){
-        val dialog = android.app.AlertDialog.Builder(requireContext()).setView(R.layout.add_user)
+        val dialog = AlertDialog.Builder(requireContext())
+        val inflater = this.layoutInflater
+        val x: View = inflater.inflate(R.layout.add_user, null)
+        dialog.setView(x)
+        val buttonAdd = x.findViewById<Button>(R.id.button_add)
+        buttonAdd.setOnClickListener{
+            val name = x.findViewById<EditText>(R.id.et_add_user_name)
+            val job = x.findViewById<EditText>(R.id.et_add_user_job)
+            userViewModel.createUser(CreateUserBody(name = name.text.toString(), job = job.text.toString()))
+        }
         dialog.create()
         dialog.show()
     }
